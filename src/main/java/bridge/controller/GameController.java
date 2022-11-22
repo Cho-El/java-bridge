@@ -21,18 +21,19 @@ public class GameController {
         this.bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
         outputView = new OutputView();
         initGame();
-        isPlaying = true;
-
     }
 
     public void play() {
-        move();
-        printMoveResult();
-        checkGameEnd();
+        while(isPlaying) {
+            move();
+            printMoveResult();
+            checkGameEnd();
+        }
     }
 
     private void initGame() {
         bridgeGame = new BridgeGame(generateTargetBridge());
+        isPlaying = true;
     }
 
     private void move() {
@@ -69,6 +70,7 @@ public class GameController {
 
     private void checkGameEnd() {
         if (bridgeGame.isGameOver()) {
+            requestGameRestart();
             return;
         }
         if (bridgeGame.isGamePass()) {
@@ -76,4 +78,16 @@ public class GameController {
         }
     }
 
+    private void requestGameRestart() {
+        String restartCommand;
+        while (true) {
+            try {
+                restartCommand = inputView.readGameCommand();
+                isPlaying = Restart.isRestart(restartCommand);
+                break;
+            } catch (IllegalArgumentException exception) {
+                System.out.println(exception.getMessage());
+            }
+        }
+    }
 }
