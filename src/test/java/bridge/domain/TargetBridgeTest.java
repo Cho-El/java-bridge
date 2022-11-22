@@ -40,4 +40,15 @@ class TargetBridgeTest {
         assertThat(targetBridge.checkMoveSuccess(inputPosition, index)).isEqualTo(isSuccess);
     }
 
+    @DisplayName("다리를 모두 건넜을 때 게임 종료를 테스트한다")
+    @Test
+    void checkGameEndWhenReachedEnd() {
+        List<String> innerBridge = List.of("U", "D", "D", "U", "D");
+        TargetBridge bridge = new TargetBridge(innerBridge);
+
+        int last = innerBridge.size();
+
+        assertThat(bridge.hasReachedEnd(last)).isTrue();
+    }
+
 }
