@@ -39,9 +39,14 @@ public class GameController {
     }
 
     private void initGame() {
+        printGameStart();
         bridgeGame = new BridgeGame(generateTargetBridge());
         isPlaying = true;
         tryCount = 1;
+    }
+
+    private void printGameStart() {
+        outputView.printStart();
     }
 
     private void move() {

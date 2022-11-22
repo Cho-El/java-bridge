@@ -21,4 +21,7 @@ public enum OutputMessage {
         }
         return String.format(value, FAIL.value);
     }
+    public String getMessage(int tryCount) {
+        return String.format(value, tryCount);
+    }
 }
