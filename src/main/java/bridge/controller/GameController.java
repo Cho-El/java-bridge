@@ -26,7 +26,7 @@ public class GameController {
     }
 
     public void play() {
-        while(isPlaying) {
+        while (isPlaying) {
             move();
             printMoveResult();
             checkGameEnd();

@@ -32,13 +32,13 @@ public enum MoveCondition {
 
     public static void initMap() {
         for (MoveCondition move : MoveCondition.values()) {
-            MATCH_VALUE_AND_MOVE.put(move.getValue(),move.getMove());
+            MATCH_VALUE_AND_MOVE.put(move.getValue(), move.getMove());
         }
     }
 
     public static void validMove(String inputMove) {
         for (MoveCondition move : MoveCondition.values()) {
-            if (move.getMove().equals(inputMove)){
+            if (move.getMove().equals(inputMove)) {
                 return;
             }
         }

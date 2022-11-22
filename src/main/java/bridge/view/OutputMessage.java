@@ -12,15 +12,18 @@ public enum OutputMessage {
     OutputMessage(String value) {
         this.value = value;
     }
+
     public String getMessage() {
         return this.value;
     }
+
     public String getMessage(boolean isSuccess) {
         if (isSuccess) {
             return String.format(value, SUCCESS.value);
         }
         return String.format(value, FAIL.value);
     }
+
     public String getMessage(int tryCount) {
         return String.format(value, tryCount);
     }

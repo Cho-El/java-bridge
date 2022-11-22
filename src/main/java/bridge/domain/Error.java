@@ -8,6 +8,7 @@ public enum Error {
     NOT_IN_RANGE_BRIDGE_ALPHABET("U,D를 입력해주세요"),
     NOT_IN_RANGE_RESTART("Q, R만 입력해주세요.");
     private final String message;
+
     Error(String message) {
         this.message = message;
     }

@@ -14,7 +14,7 @@ class InputValidatorTest {
 
     @DisplayName("자연수 이외의 숫자가 들어오는 경우 오류가 발생한다.")
     @ParameterizedTest
-    @ValueSource(strings = {"a","-","1!"})
+    @ValueSource(strings = {"a", "-", "1!"})
     void inputNotNumber(String input) {
         assertThatThrownBy(() -> InputValidator.isNumber(input))
                 .isInstanceOf(IllegalArgumentException.class)
@@ -24,7 +24,7 @@ class InputValidatorTest {
 
     @DisplayName("알파벳 대문자 이외의 문자가 들어오는 경우 오류가 발생한다.")
     @ParameterizedTest
-    @ValueSource(strings = {"1","ab","","-"})
+    @ValueSource(strings = {"1", "ab", "", "-"})
     void inputNotUpperCase(String input) {
         assertThatThrownBy(() -> InputValidator.isUpperCaseAlphabet(input))
                 .isInstanceOf(IllegalArgumentException.class)

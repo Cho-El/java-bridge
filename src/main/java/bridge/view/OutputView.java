@@ -29,6 +29,7 @@ public class OutputView {
         printMap(crossedBridge);
         printFinalGameResult(tryCount, isSuccess);
     }
+
     public void printStart() {
         System.out.println(InputMessage.START.getMessage() + "\n");
     }
@@ -37,6 +38,7 @@ public class OutputView {
         System.out.println(OutputMessage.RESULT.getMessage(isSuccess));
         System.out.printf(OutputMessage.TRY.getMessage(tryCount));
     }
+
     private void printEachMap(List<String> crossedBridge) {
         System.out.println(MapConverter.convertToMap(crossedBridge));
 

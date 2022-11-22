@@ -19,9 +19,9 @@ class TargetBridgeTest {
     @DisplayName("3미만 20 초과의 다리가 생성된 경우 오류 발생")
     @Test
     void validTargetBridge() {
-        List<String> target1 = List.of("U","D");
-        List<String> target2 = List.of("U","U","U","U","U","U","U","U","U","U",
-                "U","D","D","D","D","D","D","D","D","D","D","D");
+        List<String> target1 = List.of("U", "D");
+        List<String> target2 = List.of("U", "U", "U", "U", "U", "U", "U", "U", "U", "U",
+                "U", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D", "D");
         String HEAD = "[ERROR]";
         assertThatThrownBy(() -> new TargetBridge(target1))
                 .isInstanceOf(IllegalArgumentException.class)

@@ -11,12 +11,12 @@ public class InputView {
     /**
      * 다리의 길이를 입력받는다.
      */
-    public int readBridgeSize(){
+    public int readBridgeSize() {
         System.out.println(InputMessage.INPUT_BRIDGE_SIZE.getMessage());
         return readNumber(Console.readLine());
     }
 
-    private int readNumber(String input){
+    private int readNumber(String input) {
         InputValidator.isNumber(input);
         return Integer.parseInt(input);
     }
