@@ -1,4 +1,6 @@
-package bridge;
+package bridge.utill;
+
+import bridge.domain.Error;
 
 public class InputValidator {
     private static final String IS_NUMBER_REGEX = "[0-9]+";
