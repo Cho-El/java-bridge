@@ -1,12 +1,16 @@
 package bridge.domain;
 
+import bridge.BridgeMaker;
+import bridge.BridgeRandomNumberGenerator;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -24,4 +28,16 @@ class TargetBridgeTest {
                 .hasMessageContaining(Error.NOT_IN_RANGE.getMessage())
                 .hasMessageStartingWith(HEAD);
     }
+
+    @DisplayName("이동한 칸의 이동 성공 여부를 계산한다")
+    @ParameterizedTest
+    @CsvSource(value = {"U:true:0", "D:true:1", "U:false:2", "D:false:3", "U:false:4"}, delimiter = ':')
+    void calculateMoveSuccess(String inputPosition, boolean isSuccess, int index) {
+        List<String> innerBridge = List.of("U", "D", "D", "U", "D");
+        BridgeMaker bridgeMaker = new BridgeMaker(new BridgeRandomNumberGenerator());
+        TargetBridge targetBridge = new TargetBridge(innerBridge);
+
+        assertThat(targetBridge.checkMoveSuccess(inputPosition, index)).isEqualTo(isSuccess);
+    }
+
 }
