@@ -18,4 +18,12 @@ public class TargetBridge {
             throw new IllegalArgumentException(Error.NOT_IN_RANGE.getMessage());
         }
     }
+
+    public boolean checkMoveSuccess(String nextPosition, int index) {
+        return isNextPositionSame(nextPosition, targetBridge.get(index));
+    }
+
+    private boolean isNextPositionSame(String nextPosition, String bridgePosition) {
+        return nextPosition.equals(bridgePosition);
+    }
 }
