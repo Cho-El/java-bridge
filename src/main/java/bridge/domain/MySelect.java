@@ -4,15 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySelect {
-    private List<String> mySelect;
+    private final List<String> mySelect;
 
     public MySelect() {
         this.mySelect = new ArrayList<>();
     }
 
-    private void updateMySelect(boolean success) {
-        if (success) {
+    public void updateMySelect(boolean success) {
+        mySelect.add(MoveStatus.findMarkByValue(success));
+    }
 
-        }
+    public List<String> getMySelect() {
+        return mySelect;
     }
 }
