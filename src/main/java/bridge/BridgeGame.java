@@ -40,7 +40,7 @@ public class BridgeGame {
     }
 
     public boolean isGamePass() {
-        return targetBridge.hasReachedEnd(currentIdx);
+        return !isGameOver && targetBridge.hasReachedEnd(currentIdx);
     }
 
     private void updateGameStatus(String mySelection, boolean isSuccess) {

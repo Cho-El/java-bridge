@@ -16,6 +16,7 @@ public class GameController {
     private BridgeGame bridgeGame;
     private final OutputView outputView;
     private boolean isPlaying;
+    private int tryCount;
 
     public GameController() {
         this.inputView = new InputView();
@@ -30,11 +31,17 @@ public class GameController {
             printMoveResult();
             checkGameEnd();
         }
+        printFinalResult();
+    }
+
+    private void printFinalResult() {
+        outputView.printResult(bridgeGame.getCurrentMap(), tryCount, bridgeGame.isGamePass());
     }
 
     private void initGame() {
         bridgeGame = new BridgeGame(generateTargetBridge());
         isPlaying = true;
+        tryCount = 1;
     }
 
     private void move() {
