@@ -26,10 +26,13 @@ public class OutputView {
     public void printResult(List<List<String>> crossedBridge, int tryCount, boolean isSuccess) {
         System.out.println(OutputMessage.END.getMessage());
         printMap(crossedBridge);
+        printFinalGameResult(tryCount, isSuccess);
+    }
+
+    private void printFinalGameResult(int tryCount, boolean isSuccess) {
         System.out.println(OutputMessage.RESULT.getMessage(isSuccess));
         System.out.printf(OutputMessage.TRY.getMessage() + "\n", tryCount);
     }
-
     private void printEachMap(List<String> crossedBridge) {
         System.out.println(MapConverter.convertToMap(crossedBridge));
     }
