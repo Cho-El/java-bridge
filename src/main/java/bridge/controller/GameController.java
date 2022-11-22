@@ -4,6 +4,7 @@ import bridge.BridgeGame;
 import bridge.BridgeMaker;
 import bridge.BridgeNumberGenerator;
 import bridge.BridgeRandomNumberGenerator;
+import bridge.domain.Restart;
 import bridge.domain.TargetBridge;
 import bridge.view.InputView;
 import bridge.view.OutputView;
@@ -83,11 +84,18 @@ public class GameController {
         while (true) {
             try {
                 restartCommand = inputView.readGameCommand();
-                isPlaying = Restart.isRestart(restartCommand);
+                checkGameRestart(restartCommand);
                 break;
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());
             }
+        }
+    }
+
+    private void checkGameRestart(String command) {
+        isPlaying = Restart.isRestart(command);
+        if (isPlaying) {
+            bridgeGame.retry();
         }
     }
 }

@@ -17,4 +17,8 @@ public class MySelect {
     public List<String> getMySelect() {
         return mySelect;
     }
+
+    public void initialize() {
+        this.mySelect.clear();
+    }
 }

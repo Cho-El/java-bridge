@@ -37,4 +37,9 @@ public class MoveResult {
     public List<List<String>> getMap() {
         return List.of(upperBridge.getMySelect(), lowerBridge.getMySelect());
     }
+
+    public void clearResult() {
+        upperBridge.initialize();
+        lowerBridge.initialize();
+    }
 }
