@@ -13,6 +13,10 @@ public class TargetBridge {
         this.targetBridge = targetBridge;
     }
 
+    public boolean hasReachedEnd(int index) {
+        return index == targetBridge.size();
+    }
+
     private void validBridge(List<String> targetBridge) {
         if (!(targetBridge.size() >= MIN_SIZE_BRIDGE && targetBridge.size() <= MAX_SIZE_BRIDGE)) {
             throw new IllegalArgumentException(Error.NOT_IN_RANGE.getMessage());

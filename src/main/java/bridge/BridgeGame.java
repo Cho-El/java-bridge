@@ -12,14 +12,16 @@ import java.util.List;
 public class BridgeGame {
 
     private final TargetBridge targetBridge;
-    private final int currentIdx;
     private final MoveResult moveResult;
+    private int currentIdx;
 
+    private boolean isGameOver;
 
     public BridgeGame(TargetBridge targetBridge) {
         this.targetBridge = targetBridge;
         this.currentIdx = 0;
         this.moveResult = new MoveResult();
+        this.isGameOver = false;
     }
     /**
      * 사용자가 칸을 이동할 때 사용하는 메서드
@@ -30,6 +32,29 @@ public class BridgeGame {
         MoveCondition.validMove(mySelection);
         boolean isSuccess = targetBridge.checkMoveSuccess(mySelection, currentIdx); //여기서 연산 하고, bridgeGame 에서 다시 그 결과에 따라 이동 내역 업데이트
         updateCrossedBridge(mySelection, isSuccess);
+        updateGameStatus(mySelection, isSuccess);
+    }
+
+    public boolean isGameOver() {
+        return isGameOver;
+    }
+
+    public boolean isGamePass() {
+        return targetBridge.hasReachedEnd(currentIdx);
+    }
+
+    private void updateGameStatus(String mySelection, boolean isSuccess) {
+        moveResult.updateMoveResult(isSuccess, mySelection);
+        updateGameOverStatus(isSuccess);
+        updateBridgeIndex();
+    }
+
+    private void updateGameOverStatus(boolean isSuccess) {
+        isGameOver = !isSuccess;
+    }
+
+    private void updateBridgeIndex() {
+        currentIdx += 1;
     }
 
     /**
