@@ -33,4 +33,8 @@ public class MoveResult {
         upperBridge.updateMySelect(upperResult);
         lowerBridge.updateMySelect(lowerResult);
     }
+
+    public List<List<String>> getMap() {
+        return List.of(upperBridge.getMySelect(), lowerBridge.getMySelect());
+    }
 }
