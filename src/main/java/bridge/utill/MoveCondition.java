@@ -1,5 +1,7 @@
 package bridge.utill;
 
+import bridge.domain.Error;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -32,5 +34,14 @@ public enum MoveCondition {
         for (MoveCondition move : MoveCondition.values()) {
             MATCH_VALUE_AND_MOVE.put(move.getValue(),move.getMove());
         }
+    }
+
+    public static void validMove(String inputMove) {
+        for (MoveCondition move : MoveCondition.values()) {
+            if (move.getMove().equals(inputMove)){
+                return;
+            }
+        }
+        throw new IllegalArgumentException(Error.NOT_IN_RANGE_BRIDGE_ALPHABET.getMessage());
     }
 }
