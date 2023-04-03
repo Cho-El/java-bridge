@@ -13,10 +13,6 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class MoveConditionTest {
 
-    @BeforeEach
-    void setUp() {
-        MoveCondition.initMap();
-    }
 
     @DisplayName("0이면 D 1이면 U을 반환")
     @ParameterizedTest

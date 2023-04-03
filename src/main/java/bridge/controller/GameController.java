@@ -50,11 +50,9 @@ public class GameController {
     }
 
     private void move() {
-        String nextPosition;
         while (true) {
             try {
-                nextPosition = inputView.readMoving();
-                bridgeGame.move(nextPosition);
+                bridgeGame.move(inputView.readMoving());
                 break;
             } catch (IllegalArgumentException exception) {
                 System.out.println(exception.getMessage());

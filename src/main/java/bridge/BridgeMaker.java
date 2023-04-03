@@ -22,7 +22,6 @@ public class BridgeMaker {
      */
     public List<String> makeBridge(int size) {
         List<String> targetBridge = new ArrayList<>();
-        MoveCondition.initMap();
         for (int i = 0; i < size; i++) {
             targetBridge.add(MoveCondition.getMatchMove(bridgeNumberGenerator.generate()));
         }
